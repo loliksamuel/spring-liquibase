@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: hemdat
+      changes:
+      - createView:
+          catalogName: testdb
+          replaceIfExists: true
+          schemaName: testdb
+          selectQuery: select id from person where id > 1
+          viewName: v_person
