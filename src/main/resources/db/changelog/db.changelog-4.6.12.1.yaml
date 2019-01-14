@@ -83,3 +83,16 @@ databaseChangeLog:
             newTableName: state
             newColumnName: id
             newColumnDataType: char(2)
+
+  - changeSet:
+      id: 6
+      author: samuel-sqlfile
+      changes:
+      - sqlFile:
+          dbms: h2, mysql
+          encoding: utf8
+          endDelimiter: \nGO
+          path: sql/file.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
