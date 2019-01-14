@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: samuelc
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: keren
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: first_name
+                  value: samuel
+              - column:
+                  name: last_name
+                  value: cardonis
+  - changeSet:
+      id: 3
+      author: kobi
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(50)
+              - column:
+                  name: lastname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: state
+                  type: char(2)
+
+  - changeSet:
+      id: 4
+      author: tal
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: username
+                  type: varchar(8)
+
+  - changeSet:
+      id: 5
+      author: ofer
+      changes:
+        - addLookupTable:
+            existingTableName: user
+            existingColumnName: state
+            newTableName: state
+            newColumnName: id
+            newColumnDataType: char(2)
