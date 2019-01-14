@@ -37,7 +37,7 @@ databaseChangeLog:
                   name: last_name
                   value: Overdijk
   - changeSet:
-      id: 1
+      id: 3
       author: nvoxland
       changes:
         - createTable:
@@ -63,7 +63,7 @@ databaseChangeLog:
                   type: char(2)
 
   - changeSet:
-      id: 2
+      id: 4
       author: nvoxland
       changes:
         - addColumn:
@@ -74,7 +74,7 @@ databaseChangeLog:
                   type: varchar(8)
 
   - changeSet:
-      id: 3
+      id: 5
       author: nvoxland
       changes:
         - addLookupTable:

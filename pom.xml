@@ -5,8 +5,9 @@
 	<parent>
 		<!-- Your own application should inherit from spring-boot-starter-parent -->
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-samples</artifactId>
-		<version>${revision}</version>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+
 	</parent>
 	<artifactId>spring-boot-sample-liquibase</artifactId>
 	<name>Spring Boot Liquibase Sample</name>
