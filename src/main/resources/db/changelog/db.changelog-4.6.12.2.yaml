@@ -1,4 +1,10 @@
 databaseChangeLog:
+#  - changeSet:
+#      id: tagDatabase
+#      author: samuelc
+#      changes:
+#      - tagDatabase:
+#          tag: version_1.7
   - changeSet:
       id: 7
       author: hemdat

@@ -33,18 +33,34 @@ This sample also enables the H2 console :
 
 18. download liquibase from http://download.liquibase.org/download
 18. make diff file between 2 schemas: testdb, testdb2
-19. rollback
+19. rollback : 
+     liquibase  --defaultsFile=liquibase.properties rollback 1.0
 20. make diff again
 
-liquibase.sh --driver=com.mysql.jdbc.Driver \
-        --url=jdbc:mysql://localhost:3306/testdb \
-        --username=se \
-        --password=se \
-    diff \
-        --referenceUrl=jdbc:mysql://localhost:3306/testdb2 \
-        --referenceUsername=se \
-        --referencePassword=se
 
+liquibase \
+        --classpath=/Users/samuelc/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \
+        --driver=com.mysql.jdbc.Driver \
+        --url=jdbc:mysql://localhost:3306/testdb?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false \
+        --username=sa \
+        --password=sa \
+    diff \
+        --referenceUrl=jdbc:mysql://localhost:3306/testdb2?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false \
+        --referenceUsername=sa \
+        --referencePassword=sa
+
+21. make doc file on db
+
+liquibase \
+        --classpath=/Users/samuelc/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \  
+        --driver=com.mysql.jdbc.Driver \
+        --url=jdbc:mysql://localhost:3306/testdb?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false \
+        --username=sa \
+        --password=sa \
+        --changeLogFile=path/to/changelog.xml \
+    dbDoc \
+        /docs/dbdoc
+        
 note: sometimes if the update application is abruptly stopped, then the lock remains stuck.
 
 Then running
